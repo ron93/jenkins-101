@@ -8,8 +8,7 @@ pipeline {
       triggers {
         pollSCM '* * * * *'
       }
-    stages {
-        
+    stages { 
         stage('Build') {
             steps {
                 git(url: 'https://github.com/ron93/jenkins-101.git', branch:'master')
