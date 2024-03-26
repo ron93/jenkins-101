@@ -15,6 +15,11 @@ pipeline {
                 git(url: 'https://github.com/ron93/jenkins-101.git', branch:'master')
             }
         }
+        stage('list') {
+            steps {
+                sh 'ls -la'
+            }
+        }
         // stage('Build') {
             steps {
                 echo "Building.."
