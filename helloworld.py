@@ -1,2 +1,2 @@
 
-print("Hello jenkins")
+print("Hello jenkins from git")
