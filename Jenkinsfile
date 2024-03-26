@@ -9,7 +9,7 @@ pipeline {
         pollSCM '* * * * *'
       }
     stages { 
-        stage('Build') {
+        stage('checkout') {
             steps {
                 git(url: 'https://github.com/ron93/jenkins-101.git', branch:'master')
             }
