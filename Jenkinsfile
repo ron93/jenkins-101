@@ -9,7 +9,13 @@ pipeline {
         pollSCM '* * * * *'
       }
     stages {
+        
         stage('Build') {
+            steps {
+                git(url: 'https://github.com/ron93/jenkins-101.git', branch:'master')
+            }
+        }
+        // stage('Build') {
             steps {
                 echo "Building.."
                 sh '''
@@ -18,8 +24,8 @@ pipeline {
 
                 '''
             }
-        }
-        stage('Test') {
+        // }
+        // stage('Test') {
             steps {
                 echo "Testing.."
                 sh '''
@@ -28,14 +34,14 @@ pipeline {
                 python3 hello.py --name=Ron
                 '''
             }
-        }
-        stage('Deliver') {
+        // }
+        // stage('Deliver') {
             steps {
                 echo 'Deliver....'
                 sh '''
                 echo "doing delivery stuff.."
                 '''
             }
-        }
+        // }
     }
 }
