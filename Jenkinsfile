@@ -30,13 +30,21 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                echo "Testing.."
-                sh '''
-                cd myapp
-                python3 hello.py
-                python3 hello.py --name=Ron
-                '''
+            parallel {
+                stage('Test app') {
+                steps {
+                    echo "Testing.."
+                    sh '''
+                    cd myapp
+                    python3 hello.py
+                    python3 hello.py --name=Ron
+                    '''
+                }}
+                stage("Test cli") {
+                    steps {
+                        echo "Testin parallel ..."
+                    }
+                }
             }
         }
         stage('Deliver') {
